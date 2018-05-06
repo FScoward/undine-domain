@@ -2,6 +2,7 @@ package fscoward.undine.domain
 
 import java.time.{LocalDateTime, ZoneId, ZonedDateTime}
 
+import fscoward.undine.domain.model.{DaySchedule, ID, Status, Task}
 import org.scalatest.FunSpec
 
 class DayScheduleSpecs extends FunSpec {
@@ -9,7 +10,7 @@ class DayScheduleSpecs extends FunSpec {
     describe("when empty") {
       it("タスクを追加できる") {
         val daySchedule = DaySchedule(
-          id = ID[DaySchedule](0),
+          id = ID[DaySchedule]("uuid"),
           taskList = Nil,
           startHour = 9,
           startMinute = 30,
@@ -17,7 +18,7 @@ class DayScheduleSpecs extends FunSpec {
           endMinute = 30
         )
         val task = Task(
-          id = ID[Task](0),
+          id = ID[Task]("uuid"),
           title = "test",
           description = None,
           startAt = ZonedDateTime.of(2018, 4, 30, 9, 30, 0, 0, ZoneId.of("UTC")),
@@ -35,7 +36,7 @@ class DayScheduleSpecs extends FunSpec {
 
     it("予定が完全に被っている場合は追加出来ない") {
       val task = Task(
-        id = ID[Task](0),
+        id = ID[Task]("uuid"),
         title = "test",
         description = None,
         startAt = ZonedDateTime.of(2018, 4, 30, 9, 30, 0, 0, ZoneId.of("UTC")),
@@ -46,7 +47,7 @@ class DayScheduleSpecs extends FunSpec {
         repeatCondition = None
       )
       val daySchedule = DaySchedule(
-        id = ID[DaySchedule](0),
+        id = ID[DaySchedule]("uuid"),
         taskList = Seq(task),
         startHour = 9,
         startMinute = 30,
@@ -54,7 +55,7 @@ class DayScheduleSpecs extends FunSpec {
         endMinute = 30
       )
       val appendTask = Task(
-        id = ID[Task](0),
+        id = ID[Task]("uuid"),
         title = "test",
         description = None,
         startAt = ZonedDateTime.of(2018, 4, 30, 9, 45, 0, 0, ZoneId.of("UTC")),
@@ -70,7 +71,7 @@ class DayScheduleSpecs extends FunSpec {
 
     it("予定が被っている場合は追加出来ない") {
       val task = Task(
-        id = ID[Task](0),
+        id = ID[Task]("uuid"),
         title = "test",
         description = None,
         startAt = ZonedDateTime.of(2018, 4, 30, 9, 30, 0, 0, ZoneId.of("UTC")),
@@ -81,7 +82,7 @@ class DayScheduleSpecs extends FunSpec {
         repeatCondition = None
       )
       val daySchedule = DaySchedule(
-        id = ID[DaySchedule](0),
+        id = ID[DaySchedule]("uuid"),
         taskList = Seq(task),
         startHour = 9,
         startMinute = 30,
@@ -89,7 +90,7 @@ class DayScheduleSpecs extends FunSpec {
         endMinute = 30
       )
       val appendTask = Task(
-        id = ID[Task](0),
+        id = ID[Task]("uuid"),
         title = "test",
         description = None,
         startAt = ZonedDateTime.of(2018, 4, 30, 9, 45, 0, 0, ZoneId.of("UTC")),
@@ -105,7 +106,7 @@ class DayScheduleSpecs extends FunSpec {
 
     it("予定が被っている場合は追加出来ない2") {
       val task1 = Task(
-        id = ID[Task](0),
+        id = ID[Task]("uuid"),
         title = "test",
         description = None,
         startAt = ZonedDateTime.of(2018, 4, 30, 9, 30, 0, 0, ZoneId.of("UTC")),
@@ -116,7 +117,7 @@ class DayScheduleSpecs extends FunSpec {
         repeatCondition = None
       )
       val task2 = Task(
-        id = ID[Task](0),
+        id = ID[Task]("uuid"),
         title = "test",
         description = None,
         startAt = ZonedDateTime.of(2018, 4, 30, 11, 0, 0, 0, ZoneId.of("UTC")),
@@ -127,7 +128,7 @@ class DayScheduleSpecs extends FunSpec {
         repeatCondition = None
       )
       val daySchedule = DaySchedule(
-        id = ID[DaySchedule](0),
+        id = ID[DaySchedule]("uuid"),
         taskList = Seq(task1, task2),
         startHour = 9,
         startMinute = 30,
@@ -135,7 +136,7 @@ class DayScheduleSpecs extends FunSpec {
         endMinute = 30
       )
       val appendTask = Task(
-        id = ID[Task](0),
+        id = ID[Task]("uuid"),
         title = "test",
         description = None,
         startAt = ZonedDateTime.of(2018, 4, 30, 10, 0, 0, 0, ZoneId.of("UTC")),

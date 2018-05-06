@@ -1,7 +1,6 @@
-package fscoward.undine.domain
+package fscoward.undine.domain.model
 
-import fscoward.undine.domain.WeekDay.WeekDay
-import fscoward.undine.domain.error.DomainError
+import fscoward.undine.domain.model.WeekDay.WeekDay
 
 /**
   * @param times 繰り返し回数

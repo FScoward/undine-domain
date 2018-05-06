@@ -1,4 +1,4 @@
-package fscoward.undine.domain
+package fscoward.undine.domain.model
 
 import com.google.common.collect.Range
 import fscoward.undine.domain.error.DomainError
@@ -28,10 +28,10 @@ case class DaySchedule(
     *
     * */
   def append(task: Task): Either[DomainError, DaySchedule] = {
-//    if (canAppend(task)) {
-//      Right(this.copy(taskList = this.taskList :+ task))
-//    } else {
-//      Left(new DomainError("can't add task"))
-//    }
+    if (canAppend(task)) {
+      Right(this.copy(taskList = this.taskList :+ task))
+    } else {
+      Left(new DomainError("can't add task"))
+    }
   }
 }

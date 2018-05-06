@@ -1,4 +1,4 @@
-package fscoward.undine.domain
+package fscoward.undine.domain.model
 
 object Status extends Enumeration {
   type Status = Value

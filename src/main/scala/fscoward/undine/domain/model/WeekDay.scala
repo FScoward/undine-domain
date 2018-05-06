@@ -1,4 +1,4 @@
-package fscoward.undine.domain
+package fscoward.undine.domain.model
 
 object WeekDay extends Enumeration {
   type WeekDay = Value

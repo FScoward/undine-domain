@@ -1,5 +1,6 @@
 package fscoward.undine.domain
 
+import fscoward.undine.domain.model.RepeatCondition
 import org.scalatest.FunSpec
 
 class RepeatConditionSpec extends FunSpec {
